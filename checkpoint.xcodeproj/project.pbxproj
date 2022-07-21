@@ -17,6 +17,16 @@
 		70D2DBB32888CD7F00037705 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2DB892888CD7F00037705 /* ContentView.swift */; };
 		70D2DBB42888CD7F00037705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70D2DB8A2888CD7F00037705 /* Assets.xcassets */; };
 		70D2DBB52888CD7F00037705 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70D2DB8A2888CD7F00037705 /* Assets.xcassets */; };
+		70D2DBC62888CDBE00037705 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2DBC52888CDBE00037705 /* LoginScreen.swift */; };
+		70D2DBC72888CDBE00037705 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2DBC52888CDBE00037705 /* LoginScreen.swift */; };
+		70D2DBC92888CDF200037705 /* ListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2DBC82888CDF200037705 /* ListScreen.swift */; };
+		70D2DBCA2888CDF200037705 /* ListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2DBC82888CDF200037705 /* ListScreen.swift */; };
+		70D2DBCC2888CE1300037705 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2DBCB2888CE1300037705 /* HomeScreen.swift */; };
+		70D2DBCD2888CE1300037705 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2DBCB2888CE1300037705 /* HomeScreen.swift */; };
+		70D2DBCF2888CE2000037705 /* QRScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2DBCE2888CE2000037705 /* QRScreen.swift */; };
+		70D2DBD02888CE2000037705 /* QRScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2DBCE2888CE2000037705 /* QRScreen.swift */; };
+		70D2DBD22888CE3100037705 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2DBD12888CE3100037705 /* SettingsScreen.swift */; };
+		70D2DBD32888CE3100037705 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D2DBD12888CE3100037705 /* SettingsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +59,11 @@
 		70D2DBA82888CD7F00037705 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		70D2DBAC2888CD7F00037705 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		70D2DBAE2888CD7F00037705 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		70D2DBC52888CDBE00037705 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		70D2DBC82888CDF200037705 /* ListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListScreen.swift; sourceTree = "<group>"; };
+		70D2DBCB2888CE1300037705 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		70D2DBCE2888CE2000037705 /* QRScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScreen.swift; sourceTree = "<group>"; };
+		70D2DBD12888CE3100037705 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +114,7 @@
 			children = (
 				70D2DB882888CD7F00037705 /* checkpointApp.swift */,
 				70D2DB892888CD7F00037705 /* ContentView.swift */,
+				70D2DBC42888CDA500037705 /* Screens */,
 				70D2DB8A2888CD7F00037705 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -139,6 +155,18 @@
 				70D2DBAE2888CD7F00037705 /* Tests_macOSLaunchTests.swift */,
 			);
 			path = "Tests macOS";
+			sourceTree = "<group>";
+		};
+		70D2DBC42888CDA500037705 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				70D2DBC52888CDBE00037705 /* LoginScreen.swift */,
+				70D2DBCB2888CE1300037705 /* HomeScreen.swift */,
+				70D2DBCE2888CE2000037705 /* QRScreen.swift */,
+				70D2DBD12888CE3100037705 /* SettingsScreen.swift */,
+				70D2DBC82888CDF200037705 /* ListScreen.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,7 +328,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				70D2DBB22888CD7F00037705 /* ContentView.swift in Sources */,
+				70D2DBD22888CE3100037705 /* SettingsScreen.swift in Sources */,
+				70D2DBCC2888CE1300037705 /* HomeScreen.swift in Sources */,
+				70D2DBCF2888CE2000037705 /* QRScreen.swift in Sources */,
 				70D2DBB02888CD7F00037705 /* checkpointApp.swift in Sources */,
+				70D2DBC62888CDBE00037705 /* LoginScreen.swift in Sources */,
+				70D2DBC92888CDF200037705 /* ListScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,7 +342,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				70D2DBB32888CD7F00037705 /* ContentView.swift in Sources */,
+				70D2DBD32888CE3100037705 /* SettingsScreen.swift in Sources */,
+				70D2DBCD2888CE1300037705 /* HomeScreen.swift in Sources */,
+				70D2DBD02888CE2000037705 /* QRScreen.swift in Sources */,
 				70D2DBB12888CD7F00037705 /* checkpointApp.swift in Sources */,
+				70D2DBC72888CDBE00037705 /* LoginScreen.swift in Sources */,
+				70D2DBCA2888CDF200037705 /* ListScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
