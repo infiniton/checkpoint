@@ -7,15 +7,12 @@
 
 import SwiftUI
 
-struct LoginScreen: View {
-    @State public var authenticated = false
+struct SignupScreen: View {
     @State var username = ""
     @State private var password = ""
-    @State private var wrongUsername: Float = 0
-    @State private var wrongPassword: Float  = 0
+    @State private var repeatpassword = ""
+
     @State private var showingLoginScreen = false
-    
-    @EnvironmentObject var authentication: Authentication
     
     
     var body: some View {
@@ -37,7 +34,7 @@ struct LoginScreen: View {
                     .foregroundColor(.white)
 
                 VStack {
-                    Text("Sign in to Checkpoint")
+                    Text("Sign up for an account")
                         .font(.largeTitle)
                         .bold()
                         .padding()
@@ -47,7 +44,6 @@ struct LoginScreen: View {
                         .frame(width: 300, height: 50)
                         .background(Color.black.opacity(0.05))
                         .cornerRadius(10)
-                        .border(.red, width: CGFloat(wrongUsername))
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                         
@@ -57,7 +53,12 @@ struct LoginScreen: View {
                         .frame(width: 300, height: 50)
                         .background(Color.black.opacity(0.05))
                         .cornerRadius(10)
-                        .border(.red, width: CGFloat(wrongPassword))
+                    
+                    SecureField("Repeat Password", text: $password)
+                        .padding()
+                        .frame(width: 300, height: 50)
+                        .background(Color.black.opacity(0.05))
+                        .cornerRadius(10)
                     
                     Button("Continue") {
                         authenticateUser(username: username, password: password)
@@ -70,7 +71,7 @@ struct LoginScreen: View {
                     NavigationLink(destination: HomeScreen(username: $username), isActive: $showingLoginScreen) {
                     }
                     
-                    Button("Create Account") {
+                    Button("Log In") {
                         authenticateUser(username: username, password: password)
                         }
                     .foregroundColor(Color.purple)
@@ -81,23 +82,14 @@ struct LoginScreen: View {
     }
     
     func authenticateUser(username: String, password: String) {
-        if username.lowercased() == "oopsie" {
-            wrongUsername = 0
-            if password.lowercased() == "abcd" {
-                wrongPassword = 0
-                showingLoginScreen = true
-                authentication.updateValidation(success: true)
-            } else {
-                wrongPassword = 2
-            }
-        } else {
-            wrongUsername = 2
+        if password.lowercased() == repeatpassword.lowercased() {
+            showingLoginScreen = true
         }
     }
 }
 
-struct LoginScreen_Previews: PreviewProvider {
+struct SignupScreen_Previews: PreviewProvider {
     static var previews: some View {
-        LoginScreen()
+        SignupScreen()
     }
 }

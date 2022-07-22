@@ -8,26 +8,29 @@
 import SwiftUI
 
 struct SettingsScreen: View {
+    @EnvironmentObject var authentication: Authentication
+
     var body: some View {
-        VStack {
-        Text("Settings")
-            Button(action: logout, label: {
-                Text("Log Out")
-                    .bold()
-            })
-            .foregroundColor(.red)
-            .frame(width: 300, height: 50)
-            .background(Color(UIColor.systemGray4))
-            .cornerRadius(10)
+        ZStack {
+            Color(UIColor.systemGray6)
+                .ignoresSafeArea()
+            VStack {
+                Text("Settings")
+                        .font(.largeTitle)
+                        .bold()
+                    Button(action: signout, label: {Text("Log Out").bold()})
+                    .foregroundColor(.red)
+                    .frame(width: 300, height: 50)
+                    .background(Color(UIColor.systemGray4))
+                    .cornerRadius(10)
+            }
         }
     }
     
-    func logout() {
-        if let window = UIApplication.shared.windows.first {
-            window.rootViewController = UIHostingController(rootView: LoginScreen())
-            window.makeKeyAndVisible()
-        }
+    func signout() {
+        authentication.updateValidation(success: false)
     }
+    
 }
 
 struct SettingsScreen_Previews: PreviewProvider {

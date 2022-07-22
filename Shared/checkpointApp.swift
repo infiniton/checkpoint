@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct checkpointApp: App {
+    @StateObject var authentication = Authentication()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if authentication.isValidated {
+                ContentView()
+                    .environmentObject(authentication)
+            } else {
+                LoginScreen()
+                    .environmentObject(authentication)
+            }
         }
     }
 }

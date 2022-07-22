@@ -11,28 +11,31 @@ import CoreImage.CIFilterBuiltins
 
 struct QRScreen: View {
     
+    @Binding public var username: String
+    
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
+    let now = Date.now
+
     var body: some View {
-        VStack{
-        // display the image
-            Image(uiImage: generateQRCode(from: "abcdefghijklmnopqrstuvwxyz"))
-            .interpolation(.none)
-            .resizable()
-            .scaledToFit()
-            //.frame(width: 400, height: 400)
-            
-        Text("Scan code to sign in")
-                .font(.title)
-                .bold()
+        ZStack{
+            Color(UIColor.systemGray6)
+                .ignoresSafeArea()
+            VStack{
+            // display the image
+                Image(uiImage: generateQRCode(from: username + getDate()))
+                .interpolation(.none)
+                .resizable()
+                .scaledToFit()
                 .padding()
-            
-            Spacer()
-
-        
+            Text("Scan code to sign in")
+                    .font(.title)
+                    .bold()
+                    .padding()
+                
+                Spacer()
+            }
         }
-        
-
     }
     
     func generateQRCode(from string: String) -> UIImage {
@@ -46,10 +49,18 @@ struct QRScreen: View {
 
         return UIImage(systemName: "xmark.circle") ?? UIImage()
     }
+    
+    func getDate()->String{
+     let time = Date()
+     let timeFormatter = DateFormatter()
+     timeFormatter.dateFormat = "dd.mm.yyyy"
+     let stringDate = timeFormatter.string(from: time)
+     return stringDate
+    }
 }
 
 struct QRScreen_Previews: PreviewProvider {
     static var previews: some View {
-        QRScreen()
+        QRScreen(username: .constant("oopsie"))
     }
 }

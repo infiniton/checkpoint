@@ -8,18 +8,16 @@
 import SwiftUI
 
 struct HomeScreen: View {
-    init() {
-        UITabBar.appearance().backgroundColor = UIColor.systemGray6
-    }
+    @Binding public var username: String
     var body: some View {
-
+        
         TabView {
-            ListScreen()
+            ListScreen(username: $username)
                 .tabItem{
                     Label("Home", systemImage: "house")
                 }
                 
-            QRScreen()
+            QRScreen(username: $username)
                 .tabItem{
                     Label("Scan", systemImage: "qrcode")
                 }
@@ -29,12 +27,12 @@ struct HomeScreen: View {
                     Label("Settings", systemImage: "gear")
                 }
         }
-
     }
 }
 
 struct HomeScreen_Previews: PreviewProvider {
+    @State private var name = "oopsie"
     static var previews: some View {
-        HomeScreen()
+        HomeScreen(username: .constant("bananas"))
     }
 }
